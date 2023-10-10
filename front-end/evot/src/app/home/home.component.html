@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<!-- ongiong -->
+<div class="container mx-auto my-3" >
+    <div class="px-2">
+        <h2 class="">On Going Events</h2>
+        <div class="row justify-content-left" >
+
+            <div class="col-md-6" *ngIf="ongoing.length!==0">
+                <div class="card mr-2 mb-3" *ngFor="let i of ongoing" >
+                    <div class="card-body">
+                        <h4 class="card-title">{{i.title}}</h4>
+                        <a [routerLink]="['/eo', i.id]" class="btn btn-block btn-warning">Your Voice</a>
+                        <p class="card-text my-1">Ends at : {{i.e_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}<span></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mr-2 mb-3" *ngIf="ongoing.length===0">
+                <p class="text-info">No ongoing events</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- completed -->
+<div class="container mx-auto my-3">
+    <div class="px-2">
+        <h2 class="">Results</h2>
+        <div class="row justify-content-left">
+
+            <div class="col-md-6" *ngIf="completed.length!==0">
+                <div class="card mr-2 mb-3" *ngFor="let i of completed">
+                    <div class="card-body">
+                        <h4 class="card-title">{{i.title}}</h4>
+                        <a [routerLink]="['/er', i.id]" class="btn btn-block btn-success">Check the winner</a>
+                        <p class="card-text my-1">Ended at : {{i.e_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}<span></span></p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6 mr-2 mb-3" *ngIf="completed.length===0">
+                <p class="text-info">No completed events</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- upcoming -->
+<div class="container mx-auto my-3">
+    <div class="px-2">
+        <h2 class="">Upcoming Events</h2>
+        <div class="row justify-content-left">
+
+            <div class="col-md-6" *ngIf="upcoming.length!==0">
+                <div class="card mr-2 mb-3" *ngFor="let i of upcoming">
+                    <div class="card-body">
+                        <h4 class="card-title">{{i.title}}</h4>
+                        <h4 *ngIf="i.reg_end_dt < currentDT" class="text-info">Candidate Registration Closed</h4>
+                        <a  [routerLink]="['/eu', i.id]" class="btn btn-block btn-info" *ngIf="i.reg_end_dt > currentDT">Join in Candidate circle</a>
+                        <p class="card-text my-1" *ngIf="i.reg_end_dt > currentDT">Join before : {{i.reg_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT' }} <span></span></p>
+                        <div class="border p-1">
+                            <p class="card-text my-1">Polling Starts : {{i.e_start_dt | date:'yyyy-MM-dd hh:mm a':'GMT' }}<span></span></p>
+                            <p class="card-text my-1">Polling Ends : {{i.e_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}<span></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mr-2 mb-3" *ngIf="upcoming.length===0">
+                <p class="text-info">No upcoming events</p>
+            </div>
+
+        </div>
+    </div>
+</div>

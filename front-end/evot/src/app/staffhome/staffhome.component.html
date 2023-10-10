@@ -1,0 +1,81 @@
+
+<app-navbar></app-navbar>
+
+<div class="row m-0">
+    <!-- <div class="col-md-3 bg-dark border-top text-white">
+        <h3 class="text-center">Dashboard</h3>
+        
+    </div> -->
+    <div class="col-md-6 p-3 mx-auto">
+        <h3 class="bg-warning text-center py-2">Events</h3>
+        <div class="w-100 text-right">
+            <a [routerLink]="['/addevent']" class="btn btn-danger">Add event</a>
+        </div>
+        <!-- ongoing -->
+        <h3>OnGoing</h3>
+        <table class="table col-md-6">   
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of ongoing">
+                    <td >{{i.title}}</td>
+                    <td><a [routerLink]="['/editevent', i.id]" class="btn btn-primary">Edit</a></td>
+                    <td><button class="btn btn-danger" id="{{i.id}}" (click)="deleted($event)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- upcoming -->
+        <h3>UpComing</h3>
+        <table class="table col-md-6">   
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of upcoming">
+                    <td >{{i.title}}</td>
+                    <td><a [routerLink]="['/editevent', i.id]" class="btn btn-primary">Edit</a></td>
+                    <td><button class="btn btn-danger" id="{{i.id}}" (click)="deleted($event)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- completed -->
+        <h3>Completed</h3>
+        <table class="table col-md-6">   
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of completed">
+                    <td >{{i.title}}</td>
+                    <td><a [routerLink]="['/editevent', i.id]" class="btn btn-primary">Edit</a></td>
+                    <td><button class="btn btn-danger" id="{{i.id}}" (click)="deleted($event)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3 class="bg-warning text-center py-2 mt-5">Users</h3>
+        <h3>Assign voterid for new registered users:</h3>
+        <table class="table mx-auto col-md-6">   
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of users">
+                    <td >{{i.first_name}} {{i.last_name}}</td>
+                    <td><a [routerLink]="['/addvoterid', i.id]" class="btn btn-primary">Give VoterId</a></td>
+                    <!-- <td><button class="btn btn-danger" id="{{i.id}}" (click)="deleted($event)">Delete</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

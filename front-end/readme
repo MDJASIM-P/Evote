@@ -1,0 +1,19 @@
+
+
+clear the app.component.html and palce '<router-outlet></router-outlet>'
+
+
+
+
+
+
+er : Results of past events 
+eo : Ongoing events
+eu : Upcoming events
+
+
+
+
+
+Registraion of candidate
+------------------------

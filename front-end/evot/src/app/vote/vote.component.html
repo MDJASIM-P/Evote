@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="card col-md-8 mr-2 mb-3 mx-auto">
+    <h4 class="my-3 text-center">Vote using Voter ID</h4>
+    <form class="card-body" [formGroup]="votingForm" (ngSubmit)="submitted()">
+        <div class="form-group">
+            <label class="btn btn-block btn-info">Your Voter Id</label>
+            <input type="number" class="form-control" placeholder="00000" formControlName="voterid">
+        </div>
+        <button class="btn btn-success my-2">Submit</button>
+    </form>
+</div>

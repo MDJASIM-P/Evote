@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="container mx-auto p-3">
+    <h2 class="text-center my-3">{{event.title}}</h2>
+    <div class="">
+        <h4 class="my-3">Result</h4>
+        <p>Total Number of Candidates: <b>{{event.candidates.length}}</b> </p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Group</th>
+                    <th>Symbol</th>
+                    <th>Votes</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let i of candidates">
+                    <td>{{i.student.first_name | uppercase}} {{i.student.last_name | uppercase}}</td>
+                    <td>{{i.group}}</td>
+                    <td><img src="http://127.0.0.1:8000/{{i.symbol}}" alt="symbol" width="50px"></td>
+                    <td>{{i.votes}}</td>
+                    <td>{{i.status}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+    </div>
+</div>

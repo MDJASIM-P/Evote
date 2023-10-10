@@ -1,0 +1,11 @@
+
+<div class="card col-md-4 mr-2 mb-3 mx-auto">
+    <h4 class="my-3 text-center">Give Voter ID</h4>
+    <form class="card-body" [formGroup]="Form" (ngSubmit)="submitted()">
+        <div class="form-group">
+            <label class="btn btn-block btn-info">Voter Id</label>
+            <input type="number" class="form-control" placeholder="00000" formControlName="voterid">
+        </div>
+        <button class="btn btn-success my-2">Submit</button>
+    </form>
+</div>

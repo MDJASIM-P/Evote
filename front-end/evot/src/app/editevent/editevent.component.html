@@ -1,0 +1,40 @@
+<h2 class="text-center my-5">E-Vote</h2>
+
+<div class="container mx-auto mt-5 bg-light">
+    <form [formGroup]="editForm" (ngSubmit)="submitted()">
+        <h4 class="text-center my-5">Edit Event</h4>
+        <div class="col-md-6 mx-auto">
+            <div class="form-group">
+                <label for="">Tilte</label>
+                <input type="text" class="form-control" formControlName="title">
+            </div>
+            <div class="form-group">
+                <label for="">End Date of Candidate Registration : <span class="text-info">{{event.reg_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}</span></label>
+                <input type="datetime-local" class="form-control" formControlName="reg_end_dt" placeholder="choose">
+            </div>
+            <div class="form-group">
+                <label for="">Polling Starts : <span class="text-info">{{event.e_start_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}</span></label>
+                <input type="datetime-local" class="form-control" formControlName="e_start_dt">
+            </div>
+            <div class="form-group">
+                <label for="">Polling Ends : <span class="text-info">{{event.e_end_dt | date:'yyyy-MM-dd hh:mm a':'GMT'}}</span></label>
+                <input type="datetime-local" class="form-control" formControlName="e_end_dt">
+            </div> 
+            <div class="form-group" *ngIf="event.candidates.length!=0">
+                <label for="">Candidates: <span class="text-info"><br>* please select the candidates with ctrl key
+                   <br> * if you are not selected any candidate, Auto select all.
+                </span></label>
+                <select formControlName="cnds" multiple class="form-control">
+                    <option value="{{i.id}}" *ngFor="let i of candidates">{{i.student.first_name}} {{i.student.last_name}}</option>
+                </select>
+            </div> 
+            <div class="form-group">
+                <label for="">Status</label>
+                <input type="text" class="form-control" formControlName="status">
+            </div>
+            <h4 *ngIf="event.candidates.length==0" class="text-info">No candidates registered yet</h4>
+
+            <button class="btn btn-success">Edit</button>
+        </div>
+    </form>
+</div>

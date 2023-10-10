@@ -1,0 +1,39 @@
+<h2 class="text-center my-5">E-Vote</h2>
+
+<div class="container mx-auto mt-5 bg-light">
+    <form [formGroup]="regForm" (ngSubmit)="submitted()">
+        <h4 class="text-center my-5">Registration</h4>
+        <div class="col-md-6 mx-auto">
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" class="form-control" formControlName="fname">
+            </div>
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control" formControlName="lname">
+            </div>
+            <div class="form-group">
+                <label for="">Phone Number</label>
+                <input type="text" class="form-control" placeholder="Enter a valid phone number" formControlName="uname">
+            </div>
+            <div class="form-group">
+                <label for="">Batch</label>
+                <input type="text" class="form-control" placeholder="XXXX-XXXX" formControlName="year">
+            </div>
+            <div class="form-group">
+                <label for="">Student ID</label>
+                <input type="number" class="form-control" placeholder="0000" formControlName="std_id">
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" placeholder="Enter a secured password" formControlName="pswd">
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="password" class="form-control" placeholder="Enter same as above" formControlName="cpswd">
+            </div>
+            <button class="btn btn-success">Register</button>
+        </div>
+    </form>
+    <p class="text-center">Already registered? <a routerLink="/std_log">Login here</a></p>
+</div>
